@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe web!</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Hồng phấn */
+            color: #4B0082;
+            font-size: 24px;
+        }
+        header {
+            background-color: #084785; /* Hồng phấn */
+            color: #ffffff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #001f3f; /* Trắng */
+            color: #001f3f; /* Màu chữ tím đậm để dễ đọc */
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #4B0082; /* Hồng phấn */
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 18px;
+        }
+        nav a:hover {
+            background-color: #e4d8d8; /* Màu hồng nhạt */
+            border-radius: 5px;
+        }
+        .section {
+            display: none;
+            padding: 20px;
+            color: #4B0082; /* Màu chữ tím đậm để dễ đọc */
+        }
+        .section.active {
+            display: block;
+        }
+        .coffee-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .coffee-item {
+            background: #fbf8f8; /* Trắng */
+            color: #001f3f; /* Tím đậm */
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .coffee-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .coffee-details {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .coffee-item.active .coffee-details {
+            display: block;
+        }
+        footer {
+            background-color: #001f3f; /* Hồng phấn */
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 18px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cafe web!</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('introduction')">Giới thiệu</a>
+        <a href="#" onclick="showSection('cafeStudy')">Cafe học/ đọc</a>
+        <a href="#" onclick="showSection('Hiddencafe')">Hidden Cafe</a>
+        <a href="#" onclick="showSection('cafeAnimals')">Cafe động vật</a>
+        <a href="#" onclick="showSection('cafeWorkshop')">Cafe workshop</a>
+        <a href="#" onclick="showSection('cafePhotography')">Cafe sống ảo</a>
+        <a href="#" onclick="showSection('contact')">Liên hệ</a>
+    </nav>
+    <div class="section" id="introduction">
+        <h2>Giới thiệu</h2>
+        <p>Nếu bạn cảm thấy nhàm chán, chưa biết đi đâu trong những lúc rảnh rỗi thì hãy tìm đến chúng tôi - Cafe web! Chúng tôi sẽ mang lại cho bạn những gợi ý chân thực, uy tín và thú vị nhất về những địa điểm cafe với nhiều mục đích khác nhau xung quanh khu vực Hà Nội. Không gian thoải mái, lịch sự; mức giá phù hợp, phải chăng, đồ uống thơm ngon, lành mạnh là điều chúng tôi hướng đến khi đề xuất những địa điểm sau dành cho các bạn. Với đội ngũ xây dựng thông tin tận tâm, nhiệt huyết, chúng tôi đặt lợi ích của người tiêu dùng lên hàng đầu, cam kết tính an toàn, giải trí. Cùng theo chân chúng tôi để có những trải nghiệm đáng nhớ nhé!
+        </p>
+    </div>
+    <div class="section" id="cafeStudy">
+        <h2>Cafe học/ đọc</h2>
+        <ul class="coffee-list">
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Visty coffee</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: ngõ 814 Đ. Láng, Trung Hoà, Đống Đa, Hà Nội</li>
+                        <li>Giờ mở cửa: 7h30-20h hàng ngày</li>
+                        <li>Giá: 35-75k</li>
+                        <li>Đánh giá: không gian rộng rãi, 2 tầng, đồ uống được pha thủ công đảm bảo chất lượng.
+                        </li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (1).png" alt="">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Mọt coffee</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: Đường C5 Him Lam, Vạn Phúc, Hà Đông, Hà Nội</li>
+                        <li>Giờ mở cửa: 7h-23h hàng ngày</li>
+                        <li>Giá: 30-50k</li>
+                        <li>Đánh giá: mô hình cafe sách, được phân loại vào từng khu như một thư viện. Menu đa dạng. Không gian thoáng đãng, lan toả văn hoá đọc và quan tâm sách đến người đọc, tạo điều hiện tốt nhất để khách có thể học, làm việc hoặc đọc sách.</li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (4).png">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+            <h3>Boja cafe</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: 63 Vũ Phạm Hàm, Cầu Giấy, Hà Nội</li>
+                        <li>Giờ mở cửa: 8h-23h hàng ngày</li>
+                        <li>Giá: 40-60k</li>
+                        <li>Đánh giá: Mọi thứ đều được tối giản, màu sắc không gian, bàn ghế quy về một màu vàng be trung tính, tạo cảm giác dễ chịu ngay từ khi bước vào. Có 2 tầng, diện tích nhỏ vừa đủ, ngồi học và làm việc khá thoải mái vì nhiều bàn cao kết hợp cùng những ô cửa kính lớn đón ánh sáng tự nhiên.</li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (8).png" >
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section" id="Hiddencafe">
+        <h2>Hidden Cafe</h2>
+        <ul class="coffee-list">
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Hidden Alley</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: Tầng 2, ngõ 9B Bảo Khánh, Phường Hàng Trống, Hoàn Kiếm. </li>
+                        <li>Giờ mở cửa: 8h-23h hàng ngày</li>
+                        <li>Giá: 35k - 65k</li>
+                        <li>Đánh giá: Quán nằm trong vị trí ngõ nhỏ yên tĩnh, phù hợp chạy deadline, “đi trốn”. Không gian trong nhà ấm cúng, decor vintage, ngoài sân thoáng đãng, nhiều cây xanh. Menu đa dạng, tên đồ uống “kêu”, được đặt theo các địa danh Hà Nội (Hồ Gươm: Bạc Xỉu, Tạm Thương: Cafe Gừng,..)
+                        </li>
+                    <img width="300" src="C:\Users\Name\Downloads\471229271_18260509282265247_7186504918229905045_n.jpg">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>The Little Plan</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: Tầng 2, 11 Phủ Doãn, Hàng Trống, Hoàn Kiếm.</li>
+                        <li>Giờ mở cửa: 8h-23h hàng ngày</li>
+                        <li>Giá: 30k - 60k</li>
+                        <li>Đánh giá: Nằm trong con ngõ nhỏ yên tĩnh, có ban công view ngắm phố phường, điểm nhấn là gác mái xinh xắn. Không gian bên trong mộc mạc, ấm cúng, thoải mái, lý tưởng để cafe bạn bè, làm việc. Menu đa dạng, đồ uống chất lượng trong tầm giá.</li>
+                    <img width="300" src="C:\Users\Name\Downloads\468582070_18302826907205513_2356954604581971807_n.jpg" >
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Quán Thi</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: Cuối ngõ 113 Hoàng Cầu, Đống Đa.</li>
+                        <li>Giờ mở cửa: 9:00 - 22:00 (Thứ 3 - Chủ nhật)</li>
+                        <li>Giá: 25k - 70k</li>
+                        <li>Đánh giá: Quán có phong cách decor đơn giản, ấm cúng, thường sẽ tận dụng những đồ tái chế như bàn ghế cũ, những vật dụng thân thiện với môi trường, mang lại cảm giác yên bình, là nơi phù hợp để “ẩn náu” giữa cuộc sống bộn bề ở Hanoi. Đồ uống đa dạng, được đặt tên theo địa danh, chất lượng với giá tiền. Các bạn nhân viên dễ thương, nhiệt tình với khách hàng. </li>
+                        <img width="300" src="C:\Users\Name\Downloads\404270002_337178362281319_1178413846947860897_n.jpg">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section" id="cafeAnimals">
+        <h2>Cafe động vật</h2>
+        <ul class="coffee-list">
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Geisha cat</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: CS1: 23 Nguyễn Hoàng Tôn, Tây Hồ. CS2: Tầng 1 tòa nhà Đồng Lợi, số 2 ngõ 1160 đường Láng, Đống Đa.</li>
+                        <li>Giờ mở cửa: 10:00 - 22:00 hàng ngày</li>
+                        <li>Giá: đồ uống 39k - 59k (vé chơi với mèo riêng: 99k)</li>
+                        <li>Hoạt động nổi bật: Cho mèo ăn pate do chính mình custom, thỏa sức chơi, chụp hình với mèo, có dịch vụ chụp ảnh polaroid với mèo(15k), có quà lưu niệm nhỏ xinh mang về.</li>
+                        <li>Đánh giá:  Ở quán có hơn 20 e mèo, hầu hết là mèo nhập, được chăm sóc, tắm rửa kĩ càng, không gian thoáng mát, rộng rãi, có máy lọc không khí. </li>
+                    <img width="300" src="C:\Users\Name\Downloads\469246891_571041525643723_8393303438266738356_n.jpg" alt="">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Cela Paw Premium</h3>
+                <div class="coffee-details">
+                    <p>
+                        <ul>
+                            <li>CS1: Số 1 Lương Yên, Bạch Đằng, Hai Bà Trưng.</li>
+                            <li>CS2: 44 Nguyễn Thị Định, Thanh Xuân.</li>
+                            <li>CS3: 203 Sài Đồng, Long Biên.</li>
+                            <li>Giờ mở cửa: 8:30 - 22:00 hàng ngày</li>
+                            <li>Giá: 55 - 60k</li>
+                            <li> Là tổ hợp dịch vụ cho thú cưng: retail, salon, hotel, cafe, playground và workshop. Không gian được decor bắt mắt với tone cam rạng rỡ, thoáng mát, sạch sẽ, là địa điểm “sống ảo” cho giới trẻ. Quán được tách riêng không gian chó và mèo. Khách có thể mang pet của mình đến với điều kiện phải trên 1 tuổi và có tiêm phòng đầy đủ.</li>
+                    <img width="300" src="C:\Users\Name\Downloads\416700007_281449251581331_5225465961082732717_n.jpg" alt="">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Good Meo Cafe & Meow</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: BT05 - 16B1, làng Việt Kiều Châu Âu, Mỗ Lao, Hà Đông.</li>
+                        <li>Giờ mở cửa: 9:00 - 21:30</li>
+                        <li>Giá:vé mèo: 23k, vé mèo + nước: 66k, vé mèo + bánh + nước: 86k</li>
+                        <li>Đánh giá: Quán được decor nổi bật với tone tím pastel, không gian thoáng mát, rộng rãi, có bàn cao phù hợp để học tập, làm việc thoải mái, có nhiều góc check in. Quán có nhiều bé mèo được chăm sóc, tắm rửa kĩ. Đồ uống phù hợp hssv, menu đa dạng. </li>
+                    <img width="300" src="C:\Users\Name\Downloads\458172768_122180193176199834_7751630132831005589_n.jpg" alt="">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section" id="cafeWorkshop">
+        <h2>Cafe workshop</h2>
+        <ul class="coffee-list">
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Crafty cup:
+                </h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ:15TT2A, ngõ 622 Minh Khai, Hai Bà Trưng, Hà Nội
+                        </li>
+                        <li>Giờ mở cửa: 7:30-22:30 hàng ngày</li>
+                        <li>Giá: 35-60k</li>
+                        <li>Hoạt động nổi bật: trang trí charm, DIY, tô tượng…
+                        </li>
+                        <li>Đánh giá:  Crafty Cup mang tone màu xanh mint trắng dễ thương, không gian nhỏ nhắn, tối giản nhưng không hề thiếu góc xinh để chụp ảnh. Mặt tiền quán bắt mắt với khoảng sân nhỏ trải sỏi trắng ngay trước cửa. Crafty Cup không chỉ là quán cà phê đơn thuần mà bên cạnh đó, quán có rất nhiều đồ thủ công để các bạn có thể vừa ăn bánh, uống trà và tự tay sáng tạo những sản phẩm đẹp - độc - lạ. Điều đặc biệt ở đây là các workshop không cố định về thời gian, cũng không giới hạn số lần trải nghiệm, các bạn có thể đến bất cứ lúc nào.
+                        </li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (15).png" alt="">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>DNA coffee:</h3>
+                <div class="coffee-details">
+                    <p>
+                        <ul>
+                            <li>Địa chỉ: số 11, ngõ 178 Thái Hà, Đống Đa, Hà Nội</li>
+                            <li>Giờ mở cửa:  9:00-22:30 hàng ngày</li>
+                            <li>Giá: 15-50k </li>
+                            <li> Đánh giá: Decor xinh, không gian không quá rộng nhưng có nhiều tầng cho từng loại workshop. Nhiều mẫu tượng/charm để lựa chọn. Thích hợp để cùng bạn bè, người thân đến làm đồ lưu niệm.</li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (18).png" alt="">
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Phiu space</h3>
+                <div class="coffee-details">
+                    <p>
+                    <ul>
+                        <li>Địa chỉ: tầng 4. 35A/279 Đội Cấn, Ba Đình, Hà Nội</li>
+                        <li>Giờ mở cửa: 7:00-22:30 </li>
+                        <li>Giá:vé mèo: 45-70k</li>
+                        <li>Đánh giá: tổ hợp bao gồm coffee & làm gốm. Không gian rộng rãi với cả không gian ngoài trời cũng như không gian trong nhà. Ngoài ra là các khu vực để các bạn tham gia workshop làm gốm, vẽ gốm hay khu vực bày bán các sản phẩm làm gốm cho các bạn mua về trưng bày hoặc làm quà tặng. </li>
+                    <img width="300" src="C:\Users\Name\Downloads\unnamed (23).png" alt="">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section" id="cafePhotography">
+        <h2>Cafe sống ảo</h2>
+        <ul class="coffee-list">
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>Cheka Coffee</h3>
+                <div class="coffee-details">
+                    <p>
+                        <ul>
+                            <li>Địa chỉ: M4-L12, Khu đô thị Dương Nội, Hà Nội</li>
+                            <li>Giờ mở cửa:  9:00-22:30 hàng ngày</li>
+                            <li>Giá: 40k-60k</li>
+                            <li> Đánh giá: Cheka nổi tiếng là quán cafe rộng rãi với nhiều góc chụp ảnh,  thay đổi concept trang trí  nhiều và nhanh nhất hà nội. Ngoài ra, quán còn có dịch vụ thuê  trang phục với giá là 70k/bộ đi kèm cùng các loại  phụ kiện như: phụ kiện tóc, cầm tay, tấm hắt sáng, đèn trợ sáng, … và khách thuê đồ cũng sẽ được hỗ trợ làm tóc. 20 concept được cập nhật vô cùng chỉn chu, đây là địa điểm thích hợp cho các nàng đang mê “sống ảo”.  Menu đồ uống khá đa dạng cùng một số loại bánh ngọt, đồ ăn vặt mà giá cả vô cùng hợp lí. </li>
+                    </p>
+                </div>
+            </li>
+            <li class="coffee-item" onclick="toggleDetails(this)">
+                <h3>La Belle coffee</h3>
+                <div class="coffee-details">
+                    <p>
+                        <ul>
+                            <li>Địa chỉ: số 1,  ngõ 111, Yên Lãng, Đống Đa, Hà Nội </li>
+                            <li>Giờ mở cửa:  9:00-22:00 hàng ngày</li>
+                            <li>Giá: 45k-55k</li>
+                            <li> Đánh giá: La Belle coffee là quán cafe vô cùng thích hợp với các nàng thơ yêu thích chụp ảnh. Với các góc chụp được decor theo nhiều phong cách, đa dạng chủ đề, Là Belle sẽ mang lại cho bạn một trải nghiệm vô cùng thú vị. Đặc biệt, quán còn hỗ trợ dụng cụ, phụ kiện chụp ảnh, đèn chụp ảnh siêu đỉnh mà không thu phụ phí. Menu đồ uống khá đa dạng, giá cả phải chăng với 2 món signature là Matcha latte và Cookie cream.</li>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section" id="contact">
+        <h2>Liên hệ</h2>
+        <p>Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua email: </p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Coffeeweb. Bản quyền thuộc về Hồng Uyên, Hải Yến, Thùy Trâm, Minh Khuê.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function toggleDetails(item) {
+            const activeItems = document.querySelectorAll('.coffee-item.active');
+            activeItems.forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                }
+            });
+            item.classList.toggle('active');
+        }
+
+        window.onload = () => {
+            showSection('introduction');
+        };
+    </script>
+</body>
+</html>
